@@ -10,7 +10,7 @@
   - parse_inline -> parse_line
   - Eliminado atributo data de la clase Regressor
 - Ampliado un test en `test_util.py`
-- Corregidos los tests que comprueban la salida de logging en `test_util.py`
+- Corregidos varios tests en `test_util.py`
 - Eliminado un test en `test_average_regressor.py`
 
 ## Introducción  

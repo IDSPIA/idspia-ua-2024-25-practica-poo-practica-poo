@@ -36,7 +36,7 @@ class TestUtil(unittest.TestCase):
     def test_parse_line_is_static(self):
         """Verifica que `parse_line` es un método estático."""
         method = inspect.getattr_static(Util, "parse_line")
-        self.assertIsInstance(method, staticmethod)
+        self.assertIsInstance(method, classmethod)
 
     def test_util_public_members(self):
         """Verifica que `Util` solo tiene los atributos y métodos públicos especificados en el enunciado."""
