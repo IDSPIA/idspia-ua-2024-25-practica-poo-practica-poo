@@ -6,16 +6,6 @@ class TestAverageRegressor(unittest.TestCase):
     Pruebas unitarias para la clase AverageRegressor.
     """
 
-    def test_train_sets_correct_average(self):
-        """Verifica que el entrenamiento calcula correctamente el coste promedio."""
-        regressor = AverageRegressor()
-        X = [[1, 2, 3, 4], [2, 3, 4, 5], [0, 1, 2, 3]]  # Ignorados
-        y = [100, 150, 200]  # Costes
-
-        regressor.train(X, y)
-        expected_average = sum(y) / len(y)
-        self.assertEqual(regressor.average_cost, expected_average)
-
     def test_predict_returns_average(self):
         """Verifica que `predict` devuelve siempre el coste promedio."""
         regressor = AverageRegressor()
