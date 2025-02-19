@@ -2,6 +2,17 @@
 
 # Implementación de un sistema de predicción de costes de servicios en la nube
 
+## Actualizaciones
+
+19/02/2025:
+- Corregidas erratas en el diagrama UML
+- Corregidas erratas en README.md
+  - parse_inline -> parse_line
+  - Eliminado atributo data de la clase Regressor
+- Ampliado un test en `test_util.py`
+- Corregidos los tests que comprueban la salida de logging en `test_util.py`
+- Eliminado un test en `test_average_regressor.py`
+
 ## Introducción  
 En esta práctica practicarás la Programación Orientada a Objetos (POO) implementando un sistema de **predicción del coste de entrenamiento en la nube**. Trabajarás con datos de consumo de recursos de distintos proveedores en la nube (AWS, Google Cloud, Azure), organizados en archivos, y desarrollarás modelos de regresión para estimar los costes en función del uso de recursos.  
 
@@ -65,7 +76,7 @@ La clase `Util` proporciona métodos auxiliares para el procesamiento de datos. 
 
 **Métodos**
 
-- `parse_inline`: Convierte una línea de texto en una lista de valores numéricos. Si la línea es inválida (por ejemplo, contiene caracteres no numéricos o no tiene el número esperado de valores), mostrará una advertencia y devolverá `None`.
+- `parse_line`: Convierte una línea de texto en una lista de valores numéricos. Si la línea es inválida (por ejemplo, contiene caracteres no numéricos o no tiene el número esperado de valores), mostrará una advertencia y devolverá `None`.
 
 ### Clase `DataSet`
 
@@ -133,7 +144,6 @@ La clase `AverageRegressor` implementa un modelo de **regresión por promedio**.
 La clase `Predictor` permite entrenar y predecir costes a partir de una carpeta con datos y un modelo de regresión.
 
 **Atributos**
-- **`data`**: Lista de `DataSet` con los datos de consumo de recursos de cada proveedor.
 - **`regressor_type`**: Tipo de regresor a utilizar. Puede ser `LINEAR` o `AVERAGE`.
 - **`regressors`**: Diccionario con los regresores entrenados, donde la clave es el nombre del proveedor.
 - **`providers`**: Propiedad de solo lectura que devuelve una lista con los nombres de los proveedores encontrados al cargar los datos.

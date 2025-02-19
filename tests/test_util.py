@@ -13,22 +13,26 @@ class TestUtil(unittest.TestCase):
 
     def test_parse_line_empty(self):
         """Verifica que `parse_line` maneja correctamente una cadena vacía."""
-        with self.assertLogs(Util._logger, level='WARNING') as cm:
+        with self.assertLogs("data.util", level='WARNING') as cm:
             self.assertIsNone(Util.parse_line(""))
         self.assertIn("Línea vacía encontrada. Será ignorada.", cm.output[0])
 
     def test_parse_line_invalid_numbers(self):
         """Verifica que `parse_line` maneja correctamente valores no numéricos."""
-        with self.assertLogs(Util._logger, level='WARNING') as cm:
+        with self.assertLogs("data.util", level='WARNING') as cm:
             self.assertIsNone(Util.parse_line("2 3 x 10 195"))
         self.assertIn("Línea con valores no numéricos", cm.output[0])
 
     def test_parse_line_wrong_length(self):
         """Verifica que `parse_line` maneja correctamente líneas con número incorrecto de valores."""
-        with self.assertLogs(Util._logger, level='WARNING') as cm:
+        with self.assertLogs("data.util", level='WARNING') as cm:
             self.assertIsNone(Util.parse_line("2 3 1 10"))
-        self.assertIn("Línea con número incorrecto de valores", cm.output[0])
-    
+        self.assertIn("Línea con número incorrecto de valores", cm.output[0]) 
+            
+        with self.assertLogs("data.util", level='WARNING') as cm:
+            self.assertIsNone(Util.parse_line("2 3 1 10 2 40"))
+        self.assertIn("Línea con número incorrecto de valores", cm.output[0])   
+        
     def test_parse_line_is_static(self):
         """Verifica que `parse_line` es un método estático."""
         method = inspect.getattr_static(Util, "parse_line")
